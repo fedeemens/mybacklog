@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./sidebar.scss";
+import { useState } from "react";
 
 function Sidebar() {
+  const [sidebarColapsed, setSidebarColapsed] = useState<boolean>(false);
+
   let routes = [
     {
       link: "/home",
@@ -25,19 +28,32 @@ function Sidebar() {
     },
   ];
 
+  const changeSidebarColapsedValue = () => {
+    setSidebarColapsed(!sidebarColapsed);
+  };
+
   return (
-    <div className="sidebar">
-      <div className="profile sidebar-element">
-        <span className="material-icons-round">account_circle</span>
-        Perfil
-      </div>
+    <div className={`${sidebarColapsed ? "sidebar-colapsed" : ""} sidebar`}>
+      <span
+        className={`material-icons-round arrow-sidebar ${
+          sidebarColapsed ? "rotate" : ""
+        }`}
+        onClick={changeSidebarColapsedValue}
+      >
+        arrow_back_ios
+      </span>
+
+      <h2 className="title">
+        <span>My</span>
+        <p className={sidebarColapsed ? "hide" : ""}>backlog</p>
+      </h2>
 
       <div className="pages">
         {routes.map((route, i) => {
           return (
             <Link to={route.link} key={i} className="link sidebar-element">
               <span className="material-icons-round">{route.icon}</span>
-              {route.title}
+              <p className={sidebarColapsed ? "hide" : ""}>{route.title}</p>
             </Link>
           );
         })}
@@ -45,7 +61,7 @@ function Sidebar() {
 
       <div className="config sidebar-element">
         <span className="material-icons-round">settings</span>
-        Configuracion
+        <p className={sidebarColapsed ? "hide" : ""}>Configuracion</p>
       </div>
     </div>
   );

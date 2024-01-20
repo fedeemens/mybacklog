@@ -5,26 +5,117 @@
     background-color: $dark-blue;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    min-width: 200px;
+    width: 240px;
+    padding-left: 30px;
+    position: relative;
+    transition: all 0.4s;
+
+    .arrow-sidebar {
+        position: absolute;
+        color: white;
+        right: -18px;
+        top: 110px;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: $dark-blue;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .rotate {
+        transform: rotate(-180deg);
+    }
+
+    .hide {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .title {
+        position: relative;
+        left: 0;
+        padding-top: 40px;
+        padding-left: 10px;
+        color: $white;
+        font-family: $font-primary;
+        text-transform: uppercase;
+        font-size: 20px;
+        display: flex;
+        align-items: end;
+        gap: 5px;
+        transition: all 0.4s;
+
+        span {
+            background-color: $oranje;
+            color: white;
+            font-size: 30px;
+            padding: 0px 5px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            transition: all 0.4s;
+        }
+
+        p {
+            transition: all 0.4s;
+        }
+    }
 
     .sidebar-element {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 18px;
+        padding: 20px 0;
         font-size: 16px;
         font-family: $font-primary;
         color: $white;
-        padding: 25px 0px;
-        text-transform: uppercase;
+        cursor: pointer;
+
+        p {
+            transition: opacity 0.4s, visibility 0.4s;
+        }
     }
 
     .pages{
         display: flex;
         flex-direction: column;
+        width: 100%;
+        gap: 30px;
         .link {
             text-decoration: none;
+            transition: all 0.4s;
+
+            &:hover {
+                color: white;
+            }
         }
+    }
+
+    .config{
+        transition: all 0.4s;
+        margin-bottom: 20px;
+
+        span {
+            transform: rotate(0deg);
+            transition: transform 0.3s;
+        }
+
+        &:hover {
+            color: white;
+
+            span {
+                transform: rotate(120deg);
+            }
+        }
+    }
+}
+
+.sidebar-colapsed {
+    width: 75px;
+    padding-left: 24px;
+
+    .title {
+        padding-left: 0px;
+        left: -14px;
     }
 }
