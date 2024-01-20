@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Goals from "./pages/Goals";
 import Tasks from "./pages/Tasks";
@@ -10,6 +10,10 @@ export const routes = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/",
+        element: <Navigate to="/home" replace />,
+      },
+      {
         path: "/home",
         element: <Home />,
       },
@@ -20,6 +24,10 @@ export const routes = createBrowserRouter([
       {
         path: "/tasks",
         element: <Tasks />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/home" replace />,
       },
     ],
   },

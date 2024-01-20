@@ -6,7 +6,7 @@ function Sidebar() {
     <div className="sidebar">
       <div className="profile">Perfil</div>
       <div className="pages">
-        <Link to="" className="link">
+        <Link to="/home" className="link">
           Inicio
         </Link>
         <Link to="/goals" className="link">
