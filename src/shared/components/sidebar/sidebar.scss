@@ -5,30 +5,26 @@
     background-color: $dark-blue;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     justify-content: space-between;
-    min-width: 190px;
+    min-width: 200px;
 
-    .profile {
-        font-size: 22px;
+    .sidebar-element {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 16px;
+        font-family: $font-primary;
         color: $white;
-        padding: 15px;
+        padding: 25px 0px;
+        text-transform: uppercase;
     }
 
     .pages{
         display: flex;
         flex-direction: column;
         .link {
-            color: $white;
             text-decoration: none;
-            text-transform: uppercase;
-            padding: 15px;
         }
-    }
-
-    .config {
-        font-size: 22px;
-        color: $white;
-        padding: 15px;
     }
 }
